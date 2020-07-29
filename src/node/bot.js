@@ -4,50 +4,61 @@
 //
 
 
-console.log('The bot is starting');
+console.log('The image bot is starting');
 
-var Twit = require('twit');
-var fs = require("fs")
-var config = require('./config');
+// Establish some variables
+var Twit = require('/Users/mbb262-admin/git_projects/maize_every_day/src/node/node_modules/twit');
+var config = require('/Users/mbb262-admin/git_projects/maize_every_day/src/node/config');
 
+// Establish new variable for Twit package
+var T = new Twit(config);
+var exec = require('child_process').exec;
+var fs = require('fs');
+
+// Show access keys in the config file
 console.log(config)
 
-var T = new Twit(config);
+console.log("Before calling function")
 
-
-//  Tweetit function to execute below process
+//  call the function to send tweet
 tweetIt();
+setInterval(tweetIt, 1000*60)
+
+
+console.log("Where is the error")
 
 function tweetIt() {
+  exec(processing);
+  console.log("execute processing function")
 
-	// Load the image
-	function processing() {
-		var filename = 'maize_0.jpeg';
-		var params = {
-			encoding: 'base64'
-		}
-		var maizecontent = fs.readFileSync(filename, params);
+  // Load the image
+  function processing() {
+    var filename = './maize.png';
+    var params = {
+      encoding: 'base64'
+    }
+    var maizecontent = fs.readFileSync(filename, params);
+    console.log("finsihed reading in file")
 
-		// Upload image to Twitter, get call back to use in Tweet
-		T.post('media/upload', { media_data: maizecontent}, uploaded);
+    // Upload image to Twitter, get call back to use in Tweet
+    T.post('media/upload', { media_data: maizecontent}, uploaded);
 
-		// Function to get callback ID
-		function uploaded(err, data, response) {
-			// This is where I will tweet
-			var id = data.media_id_string;
-			var tweet = {
-				status: '#MaizeEveryDay',
-				media_ids: [id]
-			}
-			T.post('statuses/update', tweet, tweeted);
-		}
+    // Function to get callback ID
+    function uploaded(err, data, response) {
+      var id = data.media_id_string;
+      var tweet = {
+        status: '#MaizeEveryDay',
+        media_ids: [id]
+      }
+      T.post('statuses/update', tweet, tweeted);
+    }
 
-		function tweeted(err, data, response) {
-			if (err) {
-				console.log("Something went wrong!");
-			} else {
-				console.log("It worked!");
-			}
-		}
-	}
+    function tweeted(err, data, response) {
+      if (err) {
+        console.log("Something went wrong!");
+      } else {
+        console.log("It worked!");
+      }
+    }
+  }
 }
