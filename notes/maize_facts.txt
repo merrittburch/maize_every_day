@@ -7,7 +7,7 @@ In the maize version 4 reference genome the average coding region size is 207 ba
 The name maize is derived from the Spanish word maíz, originally from the Taino word mahiz.
 The full scientific classification of maize is: Plantae,Tracheophytes,Angiosperms,Monocots,Commelinids,Poales,Poaceae,Panicoideae,Zea,Z. mays L..
 Corncobs can be hollowed out and treated to make inexpensive smoking pipes, first manufactured in the United States in 1869.
-Stigmas from female maize flowers, popularly called corn silk, are sold as herbal supplements.
+Stigmas from female maize flowers, aka called corn silks, are sold as herbal supplements and drinks.
 Maize is used as a fish bait, called "dough balls". It is particularly popular in Europe for coarse fishing.
 Maize kernels can be used in place of sand in a sandboxlike enclosure for children's play.
 Chrysanthemin is found in purple corn and is used as a food coloring.
@@ -16,4 +16,4 @@ Raw, yellow, sweet maize kernels are composed of 76% water, 19% carbohydrates, 3
 Maize evolved from Zea mays ssp. parviglumis, native to the Balsas River valley in Mexico.
 Maize is a diploid with 20 chromosomes (n=10).
 Marcus M. Rhoades was asked to serve as the first custodian of the Maize Genetics Cooperation (1932 - 1935).
-
+A bushel of corn is 56 pounds. 
